@@ -15,7 +15,10 @@ app.get('/', (req, res) => {
     res.send('Bem-vindo ao servidor da DualCoreTech!');
 });
 app.get('/home', (req, res) => {
-    res.send('<h1>Bem-vindo à DualCoreTech!</h1>');
+    res.send('<h1>Bem-vindo à DualCoreTech!</h1>'
+        + '<p>Seu computador ou videogame te deixaram na mão?.</p>' 
+        + '<p>Não se preocupe, nós temo a solução ideal para você!.</p>'
+    );
 });
 app.get('/inicio', (req, res) => {
     res.redirect('/home');
