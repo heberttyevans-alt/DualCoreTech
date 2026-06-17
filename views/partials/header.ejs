@@ -3,17 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/estilos.css">
-    <link rel="icon" href="/imagens/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/images/logoGuia.png" type="image/png">
     <title>
         <%= titulo || 'Dual Core Tech' %>
     </title>
 </head>
 
 <body>
-    <nav>
-        <a href="/home">Home</a>
-        <a href="/contatos">Fale Conosco</a>
-        <a href="/sobre">Quem somos</a>
+    <nav class="bg-green-600 px-6 py-4
+    flex justify-between items-center gap-6">
+    <span class="inline-flex items-center">
+        <img src="/images/logoDualCoreTech.png"
+             alt="Logo DualCore Tech"
+             class="h-12 w-auto object-contain">
+    </span>
+        <a href="/home" class="text-gray-300
+        hover:bg-gray-700 hover:text-white transition-colors">Home</a>
+        <a href="/contatos" class="text-gray-300
+        hover:bg-gray-700 hover:text-white transition-colors">Fale Conosco</a>
+        <a href="/sobre" class="text-gray-300
+        hover:bg-gray-700 hover:text-white transition-colors">Quem somos</a>
     </nav>
     <main>
