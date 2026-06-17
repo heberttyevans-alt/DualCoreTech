@@ -2,8 +2,13 @@
 const express = require('express');
 //criando aplicação do express
 const app = express();
+// import do path para lidar com caminhos de arquivos
+const path = require('path');
 // Definição da porta do servidor
 const PORT = process.env.PORT || 3000;
+// Configurando o EJS como motor de visualização
+app.set('views engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 //Middleware para formulários
 app.use(express.urlencoded({ extended: true }));
 // Middleware para Json
