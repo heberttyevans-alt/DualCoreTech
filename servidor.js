@@ -12,6 +12,7 @@ app.use((req, res, next) => {
   res.locals.paginaAtual = req.path; // URL atual
   next();
 });
+app.use(express.static(path.join(__dirname, 'public')));
 // Atualizar
 app.get('/', (req, res) => {
   res.render('index', { titulo: 'Home' });
