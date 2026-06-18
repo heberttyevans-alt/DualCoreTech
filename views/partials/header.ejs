@@ -3,14 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/images/logoGuia.png" type="image/png">
+    <script>
+        if (
+            localStorage.getItem('color-theme') === 'dark' ||
+            (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
     <title>
         <%= titulo || 'Dual Core Tech' %>
     </title>
 </head>
 
-<body>
+<body class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex flex-col transition-colors duration-200">
     <nav class="bg-green-600 px-6 py-4
     flex justify-between items-center gap-6">
     <span class="inline-flex items-center">

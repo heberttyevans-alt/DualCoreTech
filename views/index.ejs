@@ -1,25 +1,32 @@
 <%-include('partials/header') %>
-    <h1>Bem-vindo!</h1>
-    <section class="bg-blue-400 py-16 md:py-24">
-        <div class="container mx-auto px-6 max-w-screen-xl grid grid-cols-1 md:grid-cols-3 gap-4">
-            <article class="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
-                <h3>📗 Atendimento personalizado</h3>
-                <p>
-                    Na DualCore Tech, oferecemos um atendimento personalizado para cada cliente, garantindo que suas necessidades sejam atendidas de forma rápida e eficaz.
-                </p>
-            </article>
-            <article class="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
-                <h3>🥼 Profissionais qualificados</h3>
-                <p>
-                    Nossos profissionais são altamente qualificados e experientes. Estamos comprometidos em fornecer soluções de alta qualidade para atender às suas expectativas.
-                </p>
-            </article>
-            <article class="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
-                <h3>⏱️ Prazos de entrega rápidos</h3>
-                <p>
-                    Comprometemo-nos com os prazos de entrega, garantindo que seus projetos sejam concluídos dentro do tempo estabelecido.
-                </p>
-            </article>
-        </div>
-    </section>
-    <%-include('partials/footer') %>
+<div class="px-6 pt-10 pb-6 md:pt-14 md:pb-8">
+    <div class="max-w-6xl mx-auto text-center">
+        <h1 class="font-sans font-bold text-3xl md:text-4xl text-sky-800 dark:text-sky-200">Bem-vindo à DualCore Tech!</h1>
+        <p class="mt-3 text-sm md:text-base text-slate-600 dark:text-slate-300">
+            Soluções tecnológicas com atendimento humano, rapidez e qualidade para você e seus equipamentos.
+        </p>
+    </div>
+</div>
+<section class="bg-gradient-to-br from-sky-50 via-white to-slate-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950 py-16 md:py-24">
+    <div class="container mx-auto px-6 max-w-screen-xl grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
+            <h3 class="font-sans font-bold text-slate-800 dark:text-slate-100">📗 Atendimento personalizado</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">
+                Na DualCore Tech, oferecemos um atendimento personalizado para cada cliente, garantindo que suas necessidades sejam atendidas de forma rápida e eficaz.
+            </p>
+        </article>
+        <article class="bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
+            <h3 class="font-sans font-bold text-slate-800 dark:text-slate-100">🥼 Profissionais qualificados</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">
+                Nossos profissionais são altamente qualificados e experientes. Estamos comprometidos em fornecer soluções de alta qualidade para atender às suas expectativas em relação a cada serviço solicitado.
+            </p>
+        </article>
+        <article class="bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
+            <h3 class="font-sans font-bold text-slate-800 dark:text-slate-100">⏱️ Prazos de entrega rápidos</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">
+                Comprometemo-nos com os prazos de entrega, garantindo que seus projetos sejam concluídos dentro do tempo estabelecido e a satisfação do cliente.
+            </p>
+        </article>
+    </div>
+</section>
+<%-include('partials/footer') %>
