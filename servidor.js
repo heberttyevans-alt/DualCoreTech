@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -13,7 +14,11 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
-// Atualizar
+
+const servicosRouter = 
+  require('./routes/servicos');
+app.use('/servicos', servicosRouter);
+
 app.get('/', (req, res) => {
   res.render('index', { titulo: 'Home' });
 });
@@ -44,6 +49,7 @@ app.post('/contatos', (req, res) => {
 
   res.send(`Mensagem recebida de ${nome}!`);
 });
+
 
 app.use((req, res) => {
     res.status(404).render('404', { titulo: 'Página Não Encontrada' });
