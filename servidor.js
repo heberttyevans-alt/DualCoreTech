@@ -15,45 +15,20 @@ app.use((req, res, next) => {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
-const servicosRouter = 
-  require('./routes/servicos');
+const indexRouter = require('./routes/index');
+const servicosRouter = require('./routes/servicos');
+const sobreRouter = require('./routes/sobre');
+const contatoRouter = require('./routes/contato');
+
+app.use('/', indexRouter);
 app.use('/servicos', servicosRouter);
-
-app.get('/', (req, res) => {
-  res.render('index', { titulo: 'Home' });
-});
-
-app.get('/home', (req, res) => {
-  res.render('index', { titulo: 'Home' });
-});
-
-// Sobre
-app.get('/sobre', (req, res) => {
-  res.render('sobre', { titulo: 'Sobre' });
-});
-
-app.get('/contato', (req, res) => {
-  res.render('contato', { titulo: 'Contato' });
-});
-
-app.get('/contatos', (req, res) => {
-  res.render('contato', { titulo: 'Contato' });
-});
-
-app.post('/contatos', (req, res) => {
-  const { nome, email, mensagem } = req.body;
-
-  if (!nome || !email || !mensagem) {
-    return res.status(400).send('Preencha todos os campos.');
-  }
-
-  res.send(`Mensagem recebida de ${nome}!`);
-});
-
+app.use('/', sobreRouter);
+app.use('/', contatoRouter);
 
 app.use((req, res) => {
-    res.status(404).render('404', { titulo: 'Página Não Encontrada' });
+  res.status(404).render('404', { titulo: 'Página Não Encontrada' });
 });
-  app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-  });
+
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
