@@ -1,3 +1,26 @@
+function initMenuToggle() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMobileMenu = document.getElementById('nav-mobile-menu');
+
+  if (!menuToggle || !navMobileMenu) return;
+
+  menuToggle.addEventListener('click', () => {
+    navMobileMenu.classList.toggle('hidden');
+  });
+
+  navMobileMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navMobileMenu.classList.add('hidden');
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      navMobileMenu.classList.add('hidden');
+    }
+  });
+}
+
 function initCarousel() {
   const carousel = document.getElementById('default-carousel');
 
@@ -47,7 +70,11 @@ function initCarousel() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initCarousel);
+  document.addEventListener('DOMContentLoaded', () => {
+    initMenuToggle();
+    initCarousel();
+  });
 } else {
+  initMenuToggle();
   initCarousel();
 }

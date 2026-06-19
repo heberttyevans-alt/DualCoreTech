@@ -1,30 +1,30 @@
 <%-include('partials/header') %>
-<section class="py-16 px-6">
-    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
-        <div class="bg-gradient-to-r from-emerald-600 to-teal-500 px-8 py-6">
-            <h1 class="text-3xl font-bold text-white">Fale conosco</h1>
-            <p class="mt-2 text-emerald-50">
+<section class="px-4 py-8 sm:px-6 sm:py-16 md:py-24">
+    <div class="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-800">
+        <div class="bg-gradient-to-r from-emerald-600 to-teal-500 px-4 py-5 sm:px-8 sm:py-6">
+            <h1 class="text-2xl font-bold text-white sm:text-3xl">Fale conosco</h1>
+            <p class="mt-1 text-sm text-emerald-50 sm:mt-2 sm:text-base">
                 Entre em contato para tirar dúvidas, solicitar um orçamento ou saber mais sobre nossos serviços.
             </p>
         </div>
-        <form action="/contatos" method="POST" class="p-8 space-y-5">
+        <form action="/contatos" method="POST" class="space-y-4 p-4 sm:space-y-5 sm:p-8">
             <div>
                 <label for="nome" class="block text-sm font-medium text-slate-700 dark:text-slate-200">Nome:</label>
-                <input type="text" id="nome" name="nome" required class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none">
+                <input type="text" id="nome" name="nome" required class="mt-1 w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 sm:px-4 sm:py-3 sm:text-base">
             </div>
             <div>
                 <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-200">Email:</label>
-                <input type="email" id="email" name="email" required class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none">
+                <input type="email" id="email" name="email" required class="mt-1 w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 sm:px-4 sm:py-3 sm:text-base">
             </div>
             <div>
                 <label for="mensagem" class="block text-sm font-medium text-slate-700 dark:text-slate-200">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="5" required class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"></textarea>
+                <textarea id="mensagem" name="mensagem" rows="5" required class="mt-1 w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 sm:px-4 sm:py-3 sm:text-base"></textarea>
             </div>
-            <div class="flex flex-col sm:flex-row gap-3">
-                <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold transition-colors">
+            <div class="flex flex-col gap-3 sm:flex-row">
+                <button type="submit" class="w-full rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:w-auto sm:text-base">
                     Enviar
                 </button>
-                <a href="https://wa.me/5535991418078" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold transition-colors">
+                <a href="https://wa.me/5535991418078" target="_blank" rel="noopener noreferrer" class="inline-flex w-full items-center justify-center rounded-xl bg-green-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-green-600 sm:w-auto sm:text-base">
                     WhatsApp
                 </a>
             </div>

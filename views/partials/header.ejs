@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,17 +27,31 @@
 </head>
 
 <body class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex flex-col transition-colors duration-200">
-    <nav class="px-6 py-3 md:px-8 md:py-4 flex justify-between items-center gap-3 md:gap-4 rounded-none shadow-sm bg-gradient-to-r from-emerald-700 via-green-600 to-sky-700 dark:from-emerald-950 dark:via-green-900 dark:to-sky-950 border-b border-emerald-500/20 dark:border-sky-700/30">
-        <span class="inline-flex items-center shrink-0">
+    <nav class="relative px-4 py-3 sm:px-6 md:px-8 md:py-4 flex items-center justify-between gap-2 sm:gap-3 rounded-none shadow-sm bg-gradient-to-r from-emerald-700 via-green-600 to-sky-700 dark:from-emerald-950 dark:via-green-900 dark:to-sky-950 border-b border-emerald-500/20 dark:border-sky-700/30">
+        <a href="/" class="inline-flex items-center shrink-0">
             <img src="/images/logoDualCoreTech.png"
                  alt="Logo DualCore Tech"
-                 class="h-12 w-auto object-contain">
-        </span>
-        <div class="flex items-center gap-2 md:gap-3">
-            <a href="/home" class="inline-flex items-center justify-center whitespace-nowrap px-4 py-2 md:px-5 md:py-2.5 text-sm md:text-base font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200">Home</a>            
-            <a href="/sobre" class="inline-flex items-center justify-center whitespace-nowrap px-4 py-2 md:px-5 md:py-2.5 text-sm md:text-base font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200">Quem somos</a>
-            <a href="/servicos" class="inline-flex items-center justify-center whitespace-nowrap px-4 py-2 md:px-5 md:py-2.5 text-sm md:text-base font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200">Serviços</a>
-            <a href="/contatos" class="inline-flex items-center justify-center whitespace-nowrap px-4 py-2 md:px-5 md:py-2.5 text-sm md:text-base font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200">Fale Conosco</a>
+                 class="h-10 w-auto object-contain sm:h-12">
+        </a>
+
+        <button id="menu-toggle" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-white hover:bg-white/10 focus:outline-none" aria-label="Abrir menu">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+
+        <div id="nav-menu" class="hidden md:flex items-center gap-2 md:gap-3">
+            <a href="/home" class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Home</a>
+            <a href="/sobre" class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Quem somos</a>
+            <a href="/servicos" class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Serviços</a>
+            <a href="/contatos" class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Fale Conosco</a>
+        </div>
+
+        <div id="nav-mobile-menu" class="hidden absolute left-0 right-0 top-full z-50 mt-0 border-t border-emerald-500/20 bg-emerald-700 p-4 shadow-lg dark:bg-emerald-950 md:hidden">
+            <a href="/home" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Home</a>
+            <a href="/sobre" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Quem somos</a>
+            <a href="/servicos" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Serviços</a>
+            <a href="/contatos" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Fale Conosco</a>
         </div>
     </nav>
     <main>
