@@ -69,6 +69,51 @@ function initCarousel() {
   setInterval(() => showSlide(currentIndex + 1), 5000);
 }
 
+let currentServiceName = '';
+
+function openServiceModal(serviceName, description) {
+  currentServiceName = serviceName;
+  const modal = document.getElementById('serviceModal');
+  const title = document.getElementById('modalTitle');
+  const descriptionEl = document.getElementById('modalDescription');
+  
+  title.textContent = serviceName;
+  descriptionEl.textContent = description;
+  modal.classList.remove('hidden');
+}
+
+function closeServiceModal() {
+  const modal = document.getElementById('serviceModal');
+  modal.classList.add('hidden');
+}
+
+function contractService() {
+  if (currentServiceName) {
+    const message = encodeURIComponent(`Desejo contratar o serviço ${currentServiceName}, preciso de mais informações sobre ele.`);
+    window.location.href = `/contato?mensagem=${message}`;
+  }
+}
+
+// Fechar modal ao clicar fora
+document.addEventListener('click', (e) => {
+  const modal = document.getElementById('serviceModal');
+  if (modal && e.target === modal) {
+    closeServiceModal();
+  }
+});
+
+// Carregar mensagem pré-preenchida da URL se existir
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const mensagem = urlParams.get('mensagem');
+  if (mensagem) {
+    const mensagemField = document.getElementById('mensagem');
+    if (mensagemField) {
+      mensagemField.value = decodeURIComponent(mensagem);
+    }
+  }
+});
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initMenuToggle();

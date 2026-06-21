@@ -22,6 +22,10 @@
                 <input type="email" id="email" name="email" value="<%= dados && dados.email ? dados.email : '' %>" required class="mt-1 w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 sm:px-4 sm:py-3 sm:text-base">
             </div>
             <div>
+                <label for="telefone" class="block text-sm font-medium text-slate-700 dark:text-slate-200">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" value="<%= dados && dados.telefone ? dados.telefone : '' %>" class="mt-1 w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 sm:px-4 sm:py-3 sm:text-base" placeholder="(XX) XXXXX-XXXX">
+            </div>
+            <div>
                 <label for="mensagem" class="block text-sm font-medium text-slate-700 dark:text-slate-200">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" rows="5" required class="mt-1 w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 sm:px-4 sm:py-3 sm:text-base"><%= dados && dados.mensagem ? dados.mensagem : '' %></textarea>
             </div>

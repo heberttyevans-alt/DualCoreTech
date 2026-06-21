@@ -18,16 +18,17 @@ router.get('/contatos', (req, res) => {
 });
 
 router.post('/contatos', (req, res) => {
-  const { nome, email, mensagem } = req.body;
+  const { nome, email, telefone, mensagem } = req.body;
   const nomeLimpo = nome?.trim();
   const emailLimpo = email?.trim();
+  const telefoneLimpo = telefone?.trim();
   const mensagemLimpa = mensagem?.trim();
   const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!nomeLimpo || !emailLimpo || !mensagemLimpa) {
     return res.status(400).render('contato', {
       titulo: 'Contato',
-      erro: 'Preencha todos os campos.',
+      erro: 'Preencha todos os campos obrigatórios.',
       dados: req.body
     });
   }

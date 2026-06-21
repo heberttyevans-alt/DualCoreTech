@@ -55,23 +55,53 @@
         <article class="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 sm:p-6">
             <h3 class="font-sans text-base font-bold text-slate-800 dark:text-slate-100 sm:text-lg">Formatação</h3>
             <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
+            <button onclick="openServiceModal('Formatação', 'Formatação completa de seu computador ou notebook com opção de backup de dados para preservar seus arquivos importantes.')" class="mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600">Saiba mais</button>
         </article>
         <article class="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 sm:p-6">
             <h3 class="font-sans text-base font-bold text-slate-800 dark:text-slate-100 sm:text-lg">Limpeza completa de computadores e notebooks</h3>
             <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
+            <button onclick="openServiceModal('Limpeza completa de computadores e notebooks', 'Limpeza profunda interna e externa, remoção de poeira e resíduos, otimização de ventilação e desempenho térmico do equipamento.')" class="mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600">Saiba mais</button>
         </article>
         <article class="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 sm:p-6 sm:col-span-2 lg:col-span-1">
             <h3 class="font-sans text-base font-bold text-slate-800 dark:text-slate-100 sm:text-lg">Restauração de carcaça de notebooks</h3>
             <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
+            <button onclick="openServiceModal('Restauração de carcaça de notebooks', 'Reparo e restauração de carcaças danificadas, fissuras ou quebras, devolvendo o aspecto e integridade estrutural do seu notebook.')" class="mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600">Saiba mais</button>
         </article>
         <article class="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 sm:p-6">
             <h3 class="font-sans text-base font-bold text-slate-800 dark:text-slate-100 sm:text-lg">Reparo de fontes de alimetação</h3>
             <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
+            <button onclick="openServiceModal('Reparo de fontes de alimetação', 'Diagnóstico e reparo de fontes de alimentação com problemas, garantindo o funcionamento seguro e eficiente do seu equipamento.')" class="mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600">Saiba mais</button>
         </article>
         <article class="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 sm:p-6 sm:col-span-2 lg:col-span-1">
             <h3 class="font-sans text-base font-bold text-slate-800 dark:text-slate-100 sm:text-lg">Manutenção preventiva de Video games</h3>
             <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
+            <button onclick="openServiceModal('Manutenção preventiva de Video games', 'Limpeza, manutenção e preventiva de consoles e equipamentos de jogos, garantindo longevidade e melhor desempenho.')" class="mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600">Saiba mais</button>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 sm:p-6 sm:col-span-2 lg:col-span-1">
+            <h3 class="font-sans text-base font-bold text-slate-800 dark:text-slate-100 sm:text-lg">Montagem de computadores</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
+            <button onclick="openServiceModal('Montagem de computadores', 'Montagem personalizada de computadores conforme suas necessidades e orçamento, com suporte técnico e garantia.')" class="mt-4 w-full rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600">Saiba mais</button>
         </article>
     </div>
 </section>
+
+<!-- Modal do Serviço -->
+<div id="serviceModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+    <div class="relative max-w-md rounded-3xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-800">
+        <div class="bg-gradient-to-r from-sky-600 to-sky-500 px-6 py-5">
+            <h2 id="modalTitle" class="text-xl font-bold text-white"></h2>
+        </div>
+        <div class="p-6">
+            <p id="modalDescription" class="text-sm text-slate-600 dark:text-slate-300"></p>
+            <div class="mt-6 flex flex-col gap-3">
+                <button onclick="contractService()" class="rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700">
+                    Contratar Serviço
+                </button>
+                <button onclick="closeServiceModal()" class="rounded-lg bg-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <%-include('partials/footer') %>
