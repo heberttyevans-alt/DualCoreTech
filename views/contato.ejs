@@ -7,10 +7,15 @@
                 Entre em contato para tirar dúvidas, solicitar um orçamento ou saber mais sobre nossos serviços.
             </p>
         </div>
-        <form action="/contatos" method="POST" class="space-y-4 p-4 sm:space-y-5 sm:p-8">
+        <form action="/contato" method="POST" class="space-y-4 p-4 sm:space-y-5 sm:p-8">
             <% if (typeof erro !== 'undefined' && erro) { %>
                 <div class="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-900/30 dark:text-red-100">
                     <%= erro %>
+                </div>
+            <% } %>
+            <% if (typeof sucesso !== 'undefined' && sucesso) { %>
+                <div class="rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-700 dark:border-emerald-500/40 dark:bg-emerald-900/30 dark:text-emerald-100">
+                    <%= sucesso %>
                 </div>
             <% } %>
             <div>

@@ -69,6 +69,26 @@ function initCarousel() {
   setInterval(() => showSlide(currentIndex + 1), 5000);
 }
 
+function initPasswordToggle() {
+  const toggle = (buttonId, inputId) => {
+    const button = document.getElementById(buttonId);
+    const input = document.getElementById(inputId);
+    if (!button || !input) return;
+
+    button.addEventListener('click', () => {
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      const icon = button.querySelector('i');
+      icon.classList.toggle('fa-eye', !isPassword);
+      icon.classList.toggle('fa-eye-slash', isPassword);
+    });
+  };
+
+  toggle('toggle-password-login', 'senha-login');
+  toggle('toggle-password-register', 'senha-register');
+}
+
+
 let currentServiceName = '';
 
 function openServiceModal(serviceName, description) {
@@ -118,8 +138,10 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initMenuToggle();
     initCarousel();
+    initPasswordToggle();
   });
 } else {
   initMenuToggle();
   initCarousel();
+  initPasswordToggle();
 }

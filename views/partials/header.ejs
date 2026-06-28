@@ -10,6 +10,8 @@
             darkMode: 'class'
         };
     </script>
+    <!-- Adiciona a biblioteca de ícones (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="icon" href="/images/logoGuia.png" type="image/png">
     <script>
         if (
@@ -26,32 +28,61 @@
     </title>
 </head>
 
-<body class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex flex-col transition-colors duration-200">
-    <nav class="relative px-4 py-3 sm:px-6 md:px-8 md:py-4 flex items-center justify-between gap-2 sm:gap-3 rounded-none shadow-sm bg-gradient-to-r from-emerald-700 via-green-600 to-sky-700 dark:from-emerald-950 dark:via-green-900 dark:to-sky-950 border-b border-emerald-500/20 dark:border-sky-700/30">
+<body
+    class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex flex-col transition-colors duration-200">
+    <nav
+        class="relative px-4 py-3 sm:px-6 md:px-8 md:py-4 flex items-center justify-between gap-2 sm:gap-3 rounded-none shadow-lg bg-gradient-to-r from-emerald-700 via-green-600 to-sky-700 dark:from-emerald-950 dark:via-green-900 dark:to-sky-950 border-b border-emerald-500/20 dark:border-sky-700/30">
         <a href="/" class="inline-flex items-center shrink-0">
-            <img src="/images/logoDualCoreTech.png"
-                 alt="Logo DualCore Tech"
-                 class="h-10 w-auto object-contain sm:h-12">
+            <img src="/images/logoDualCoreTech.png" alt="Logo DualCore Tech" class="h-24 w-auto object-contain -my-6 drop-shadow-lg">
         </a>
 
-        <button id="menu-toggle" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-white hover:bg-white/10 focus:outline-none" aria-label="Abrir menu">
+        <button id="menu-toggle"
+            class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-white hover:bg-white/10 focus:outline-none"
+            aria-label="Abrir menu">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
             </svg>
         </button>
 
         <div id="nav-menu" class="hidden md:flex items-center gap-2 md:gap-3">
-            <a href="/home" class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Home</a>
-            <a href="/sobre" class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Quem somos</a>
-            <a href="/servicos" class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Serviços</a>
-            <a href="/contatos" class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Fale Conosco</a>
+            <a href="/home"
+                class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Home</a>
+            <a href="/sobre"
+                class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Quem
+                somos</a>
+            <a href="/servicos"
+                class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Serviços</a>
+            <a href="/contato"
+                class="inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium text-white rounded-xl bg-white/10 hover:bg-white/15 dark:bg-white/5 dark:hover:bg-white/10 transition-colors duration-200 sm:px-4 md:px-5 md:py-2.5 md:text-base">Fale
+                Conosco</a>
+            <% if (usuario) { %>
+                <a href="/dashboard"
+                    class="px-4 py-2.5 text-sm font-medium text-white bg-white/20 rounded-xl hover:bg-white/30">Meu
+                    Painel</a>
+                <a href="/logout"
+                    class="px-4 py-2.5 text-sm font-medium text-white bg-red-500/20 rounded-xl hover:bg-red-500/30">Sair</a>
+            <% } else { %>
+                <a href="/login"
+                    class="px-4 py-2.5 text-sm font-medium text-white bg-white/20 rounded-xl hover:bg-white/30">Login
+                    / Cadastro</a>
+            <% } %>
         </div>
 
-        <div id="nav-mobile-menu" class="hidden absolute left-0 right-0 top-full z-50 mt-0 border-t border-emerald-500/20 bg-emerald-700 p-4 shadow-lg dark:bg-emerald-950 md:hidden">
+        <div id="nav-mobile-menu"
+            class="hidden absolute left-0 right-0 top-full z-50 mt-0 border-t border-emerald-500/20 bg-emerald-700 p-4 shadow-lg dark:bg-emerald-950 md:hidden">
             <a href="/home" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Home</a>
-            <a href="/sobre" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Quem somos</a>
-            <a href="/servicos" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Serviços</a>
-            <a href="/contatos" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Fale Conosco</a>
+            <a href="/sobre" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Quem
+                somos</a>
+            <a href="/servicos"
+                class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Serviços</a>
+            <a href="/contato" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Fale
+                Conosco</a>
+            <% if (usuario) { %>
+                <a href="/dashboard" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Meu Painel</a>
+                <a href="/logout" class="block rounded-lg px-4 py-3 text-sm font-medium text-red-200 hover:bg-red-500/20">Sair</a>
+            <% } else { %>
+                <a href="/login" class="block rounded-lg px-4 py-3 text-sm font-medium text-white hover:bg-white/10">Login / Cadastro</a>
+            <% } %>
         </div>
     </nav>
-    <main>
