@@ -12,9 +12,11 @@ router.get('/dashboard', (req, res, next) => {
     if (!req.session.usuario) return res.redirect('/login');
 
     const user = req.session.usuario;
+    const { status, busca } = req.query;
 
     let query;
     const params = [];
+    const whereClauses = [];
 
     if (user.isAdmin) {
         query = `
@@ -32,8 +34,13 @@ router.get('/dashboard', (req, res, next) => {
                     c.nome, c.email, c.mensagem, 'contato' AS tipo
                 FROM contatos c
             )
-            ORDER BY data_criacao DESC
         `;
+
+        if (busca) {
+            whereClauses.push(`(nome LIKE ? OR email LIKE ? OR servico LIKE ? OR mensagem LIKE ?)`);
+            const searchTerm = `%${busca}%`;
+            params.push(searchTerm, searchTerm, searchTerm, searchTerm);
+        }
     } else {
         query = `
             SELECT id, servico, mensagem, status, data_criacao, tipo FROM (
@@ -47,10 +54,26 @@ router.get('/dashboard', (req, res, next) => {
                 FROM contatos
                 WHERE usuario_id = ?
             )
-            ORDER BY data_criacao DESC
         `;
         params.push(user.id, user.id);
+
+        if (busca) {
+            whereClauses.push(`(servico LIKE ? OR mensagem LIKE ?)`);
+            const searchTerm = `%${busca}%`;
+            params.push(searchTerm, searchTerm);
+        }
     }
+
+    if (status) {
+        whereClauses.push(`status = ?`);
+        params.push(status);
+    }
+
+    if (whereClauses.length > 0) {
+        query += ` WHERE ${whereClauses.join(' AND ')}`;
+    }
+
+    query += ` ORDER BY data_criacao DESC`;
 
     db.all(query, params, (err, pedidos) => {
         if (err) {
@@ -62,6 +85,8 @@ router.get('/dashboard', (req, res, next) => {
             titulo: titulo,
             pedidos: pedidos || [],
             isAdmin: user.isAdmin,
+            filtroStatus: status || '',
+            filtroBusca: busca || ''
         });
     });
 });
