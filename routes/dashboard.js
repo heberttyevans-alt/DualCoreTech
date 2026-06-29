@@ -22,16 +22,16 @@ router.get('/dashboard', (req, res, next) => {
         query = `
             SELECT * FROM (
                 SELECT
-                    p.id, p.usuario_id, p.servico, p.status, p.data_criacao,
-                    u.nome, u.email, p.descricao AS mensagem, 'pedido' AS tipo
+                    p.id, p.usuario_id, p.servico, p.status, p.data_criacao, u.nome, u.email,
+                    NULL AS telefone, p.descricao AS mensagem, 'pedido' AS tipo
                 FROM pedidos p
                 LEFT JOIN usuarios u ON p.usuario_id = u.id
                 
                 UNION ALL
                 
                 SELECT
-                    c.id, c.usuario_id, 'Contato' AS servico, c.status, c.data_criacao,
-                    c.nome, c.email, c.mensagem, 'contato' AS tipo
+                    c.id, c.usuario_id, 'Contato' AS servico, c.status, c.data_criacao, c.nome, c.email,
+                    c.telefone, c.mensagem, 'contato' AS tipo
                 FROM contatos c
             )
         `;
@@ -108,6 +108,50 @@ router.post('/admin/atualizar-status', (req, res) => {
     db.run(`UPDATE ${table} SET status = ? WHERE id = ?`, [nextStatus, id], (err) => {
         if (err) {
             console.error("Erro ao atualizar status:", err.message);
+        }
+        res.redirect('/dashboard');
+    });
+});
+
+// Rota para admin excluir solicitação
+router.post('/admin/excluir-solicitacao', (req, res) => {
+    if (!req.session.usuario || !req.session.usuario.isAdmin) return res.status(403).send("Acesso negado");
+
+    const { id, tipo } = req.body;
+
+    if (!id || !tipo) {
+        return res.status(400).send("ID ou Tipo da solicitação não fornecido.");
+    }
+
+    const table = tipo === 'contato' ? 'contatos' : 'pedidos';
+
+    db.run(`DELETE FROM ${table} WHERE id = ?`, [id], (err) => {
+        if (err) console.error("Erro ao excluir solicitação:", err.message);
+        res.redirect('/dashboard');
+    });
+});
+
+// Rota para usuário excluir sua própria solicitação
+router.post('/dashboard/excluir-solicitacao', (req, res) => {
+    if (!req.session.usuario) {
+        return res.status(403).send("Acesso negado. Você precisa estar logado.");
+    }
+
+    const { id, tipo } = req.body;
+    const usuarioId = req.session.usuario.id;
+
+    if (!id || !tipo) {
+        return res.status(400).send("ID ou Tipo da solicitação não fornecido.");
+    }
+
+    const table = tipo === 'contato' ? 'contatos' : 'pedidos';
+
+    // A consulta garante que o usuário só pode deletar suas próprias solicitações e apenas se estiverem pendentes.
+    const query = `DELETE FROM ${table} WHERE id = ? AND usuario_id = ? AND status = 'Pendente'`;
+
+    db.run(query, [id, usuarioId], function(err) {
+        if (err) {
+            console.error("Erro ao excluir solicitação do usuário:", err.message);
         }
         res.redirect('/dashboard');
     });
