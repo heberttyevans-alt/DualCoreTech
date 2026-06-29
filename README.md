@@ -7,6 +7,11 @@ Um projeto web desenvolvido com Node.js, Express e EJS.
 - **Node.js** - Runtime JavaScript
 - **Express** - Framework web
 - **EJS** - Template engine
+- **SQLite** - Banco de dados SQL
+- **bcrypt** - Para hash de senhas
+- **express-session** - Para gerenciamento de sessões
+- **Passport.js** - Middleware de autenticação
+- **Passport Google OAuth 2.0** - Estratégia para login com Google
 - **Nodemon** - Ferramenta de desenvolvimento
 
 ## 📋 Pré-requisitos
